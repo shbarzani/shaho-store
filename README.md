@@ -523,7 +523,7 @@
       { name: "iPhone 14 Pro", price: 999, image: "mobile1.jpg", category: "Mobiles", desc: "Powerful chip and top camera system." },
       { name: "s24 Ultra", price: 980, image: "s242.jpg", category: "Mobiles", desc: "Powerful chip and top camera system." },
       { name: "Samsung Galaxy S23", price: 849, image: "galaxy1.jpg", category: "Mobiles", desc: "Great Android experience with fast performance." },
-      { name: "HP Pro M2", price: 1200,  image: "laptop1.jpg", category: "Laptops", desc: "Super powerful and sleek HP laptop. (Discounted!)" },
+      { name: "HP Pro M2", price: 1230,  image: "laptop1.jpg", category: "Laptops", desc: "Super powerful and sleek HP laptop. (Discounted!)" },
       { name: "Dell XPS 15", price: 1299, image: "laptop2.jpg", category: "Laptops", desc: "Great for work and design professionals." },
       { name: "Cool T-Shirt", price: 25, image: "t-shirt.jpg", category: "Clothes", desc: "100% cotton, stylish and comfortable." },
       { name: "Winter Jacket", price: 99, image: "t-shirt2.jpg", category: "Clothes", desc: "Warm and cozy jacket for cold weather." },
