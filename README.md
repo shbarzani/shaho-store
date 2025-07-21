@@ -3,34 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shaho Store | Login & Shop</title>
-  <meta name="description" content="Shaho Store: Shop mobiles, laptops, clothes, and accessories. Fast shipping, secure payments, and great deals.">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Shaho Store | Premium Shopping Experience</title>
+  <meta name="description" content="Shaho Store: Premium mobiles, laptops, clothes, and accessories. Fast shipping, secure payments, and exceptional quality.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Poppins', Arial, sans-serif; background: #f7f8fa; color: #222; min-height: 100vh; }
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background:
+        linear-gradient(120deg, #0a58ca 0%, #6dd5ed 100%),
+        url('logo9.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #222;
+      min-height: 100vh;
+    }
     .hidden { display: none !important; }
-    /* Auth screen */
-    .auth-bg { min-height: 100vh; width: 100vw; background: linear-gradient(120deg, #0a58ca 0%, #6dd5ed 100%); display: flex; align-items: center; justify-content: center; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 9999; }
-    .auth-container { background: rgba(255,255,255,0.18); box-shadow: 0 8px 32px rgba(10,88,202,0.14); border-radius: 22px; padding: 44px 32px 32px 32px; max-width: 370px; width: 100%; backdrop-filter: blur(12px); display: flex; flex-direction: column; align-items: stretch; }
-    .auth-tabs { display: flex; justify-content: center; margin-bottom: 24px; }
-    .auth-tab { flex: 1 1 50%; background: none; border: none; padding: 14px 0; font-size: 1.1rem; font-weight: 600; color: #0a58ca; border-bottom: 2.5px solid transparent; cursor: pointer; transition: color 0.2s, border 0.2s; }
-    .auth-tab.active { color: #084298; border-bottom: 2.5px solid #ffe066; background: rgba(255,255,255,0.13); }
-    .auth-form { display: flex; flex-direction: column; gap: 18px; }
-    .auth-form.hidden { display: none; }
-    .auth-title { text-align: center; color: #0a58ca; font-size: 1.4rem; margin-bottom: 12px; font-weight: 700; letter-spacing: 1px; }
-    .auth-field { position: relative; }
-    .auth-field input { width: 100%; padding: 12px 44px 12px 14px; border-radius: 12px; border: 1.5px solid #e3e8f0; font-size: 1rem; background: rgba(255,255,255,0.75); outline: none; transition: border 0.2s; }
-    .auth-field input:focus { border: 1.5px solid #0a58ca; }
-    .password-field .toggle-password { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #0a58ca; font-size: 1.15rem; opacity: 0.7; user-select: none; }
-    .password-field .toggle-password:hover { opacity: 1; }
-    .auth-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.97rem; }
-    .forgot-link { color: #0a58ca; text-decoration: underline; cursor: pointer; font-size: 0.97rem; }
-    .forgot-link:hover { color: #084298; }
-    .auth-btn { background: #0a58ca; color: #fff; border: none; border-radius: 22px; padding: 12px 0; font-size: 1.1rem; font-weight: 700; cursor: pointer; margin-top: 8px; transition: background 0.2s; }
-    .auth-btn:hover { background: #084298; }
-    .auth-error { min-height: 22px; color: #e84118; text-align: center; font-size: 0.98rem; }
+    .dashboard-modal {
+      position:fixed; left:0; top:0; right:0; bottom:0; z-index:2000;
+      background:rgba(10,20,36,0.13); display:flex;align-items:center;justify-content:center;
+    }
+    .dashboard-content {
+      background:#fff; border-radius:22px; width:95%; max-width:900px; min-height:450px;
+      box-shadow:0 12px 48px rgba(10,88,202,0.16); padding:38px 26px 22px 26px; position:relative;
+      max-height:90vh; overflow-y:auto;
+    }
+    .dashboard-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;}
+    .dashboard-header h2 { color:#0a58ca; font-size:1.7rem;}
+    .dashboard-close { font-size:1.9rem; color:#e84118; cursor:pointer;}
+    .dashboard-section { margin:24px 0;}
+    .dashboard-cards { display:flex; gap:14px; flex-wrap:wrap;}
+    .dashboard-card {
+      background:#eaf1fb; border-radius:16px; box-shadow:0 2px 10px rgba(0,0,0,0.05);
+      padding:16px 26px; flex:1 1 175px; min-width:185px; text-align:center;
+    }
+    .dashboard-card h4 { color:#0a58ca; font-size:1.08rem; margin-bottom:6px;}
+    .dashboard-card .stat { font-size:1.35rem; font-weight:bold; }
+    .dashboard-table { width:100%; border-collapse:collapse; margin-top:14px;}
+    .dashboard-table th, .dashboard-table td { border:1px solid #ddd; padding:10px 7px; font-size:1rem; text-align:left;}
+    .dashboard-table th { background:#0a58ca; color:#fff;}
+    .dashboard-table tr:nth-child(even) { background:#f7f8fa;}
+    .dashboard-add {
+      margin-top:10px;
+      display:flex;gap:10px;align-items:center;
+    }
+    .dashboard-add input {padding:7px 11px; border-radius:9px; border:1.3px solid #bbb; font-size:1rem;}
+    .dashboard-add button {padding:7px 18px; border-radius:11px;border:none; background:#0a58ca; color:#fff;font-weight:bold; cursor:pointer;}
+    .dashboard-section h3 { color:#0a58ca; margin-bottom:7px;}
+    .dashboard-delete { background:#e84118;padding:3px 7px;border:none;border-radius:8px;color:#fff;cursor:pointer;}
+    @media (max-width: 900px) {.dashboard-content{padding:26px 5px 14px 5px;}}
     @media (max-width: 500px) { .auth-container { padding: 28px 5px 18px 5px; max-width: 99vw; } .auth-title { font-size: 1.1rem; } }
     /* Store styles */
     .container { max-width: 1200px; margin: 0 auto; padding: 0 18px; }
@@ -115,7 +137,6 @@
   </style>
 </head>
 <body>
-  <!-- LOGIN/REGISTER SCREEN -->
   <div id="authScreen" class="auth-bg">
     <div class="auth-container">
       <div class="auth-tabs">
@@ -190,7 +211,8 @@
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#faq">FAQ</a></li>
-            <li><a href="#shipping">Shipping </a></li>
+            <li><a href="#shipping">Shipping</a></li>
+            <li><a href="#dashboard" id="dashboardNav">Dashboard</a></li>
           </ul>
         </nav>
         <div class="header-right">
@@ -287,6 +309,77 @@
       </div>
     </div>
 
+    <!-- DASHBOARD MODAL -->
+    <div id="dashboardModal" class="dashboard-modal hidden">
+      <div class="dashboard-content">
+        <div class="dashboard-header">
+          <h2>Admin Dashboard</h2>
+          <span class="dashboard-close" id="dashboardCloseBtn">&times;</span>
+        </div>
+        <!-- Sales Summary -->
+        <div class="dashboard-section" id="dashboardSummarySection">
+          <h3>Store Summary</h3>
+          <div class="dashboard-cards">
+            <div class="dashboard-card">
+              <h4>Total Orders</h4>
+              <div class="stat" id="statOrders">0</div>
+            </div>
+            <div class="dashboard-card">
+              <h4>Total Items Sold</h4>
+              <div class="stat" id="statItems">0</div>
+            </div>
+            <div class="dashboard-card">
+              <h4>Total Revenue ($)</h4>
+              <div class="stat" id="statRevenue">0.00</div>
+            </div>
+            <div class="dashboard-card">
+              <h4>Registered Users</h4>
+              <div class="stat" id="statUsers">0</div>
+            </div>
+          </div>
+        </div>
+        <!-- Product Management -->
+        <div class="dashboard-section">
+          <h3>Manage Products</h3>
+          <form class="dashboard-add" id="addProductForm" onsubmit="return false;">
+            <input id="addProdName" type="text" placeholder="Product Name" required>
+            <input id="addProdPrice" type="number" min="0" placeholder="Price" required>
+            <input id="addProdImg" type="text" placeholder="Image (e.g. img.jpg)" required>
+            <input id="addProdCategory" type="text" placeholder="Category" required>
+            <input id="addProdDesc" type="text" placeholder="Description" required>
+            <button id="addProdBtn">Add</button>
+          </form>
+          <table class="dashboard-table" id="dashboardProductsTable">
+            <thead>
+              <tr><th>Name</th><th>Price ($)</th><th>Category</th><th>Actions</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <!-- Users -->
+        <div class="dashboard-section">
+          <h3>Registered Users</h3>
+          <table class="dashboard-table" id="dashboardUsersTable">
+            <thead>
+              <tr><th>Name</th><th>Email</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <!-- Orders -->
+        <div class="dashboard-section">
+          <h3>Orders</h3>
+          <table class="dashboard-table" id="dashboardOrdersTable">
+            <thead>
+              <tr><th>User</th><th>Date</th><th>Items</th><th>Total ($)</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- End DASHBOARD -->
+
     <!-- About Section -->
     <section id="about" class="about-section">
       <div class="container">
@@ -294,6 +387,9 @@
         <p>
           Shaho Store is your one-stop shop for mobiles, laptops, clothes, and accessories. We offer top brands and the latest products at great prices. Our mission is to deliver quality and satisfaction to every customer.
         </p>
+      </div>
+      <div style="display: flex; justify-content: center; align-items: center; margin-top: 32px; margin-bottom: 10px;">
+        <img src="logo9.jpg" alt="Shaho Store Feature" style="max-width: 100%; width: 540px; border-radius: 18px; box-shadow: 0 8px 32px rgba(10,88,202,0.16);">
       </div>
     </section>
 
@@ -518,12 +614,12 @@
       setTimeout(() => setTab("login"), 1500);
     };
 
-    // --- STORE LOGIC ---
-    const products = [
+    // --- PRODUCTS/STORAGE LOGIC ---
+    window.products = [
       { name: "iPhone 14 Pro", price: 999, image: "mobile1.jpg", category: "Mobiles", desc: "Powerful chip and top camera system." },
       { name: "s24 Ultra", price: 980, image: "s242.jpg", category: "Mobiles", desc: "Powerful chip and top camera system." },
       { name: "Samsung Galaxy S23", price: 849, image: "galaxy1.jpg", category: "Mobiles", desc: "Great Android experience with fast performance." },
-      { name: "HP Pro M2", price: 1230,  image: "laptop1.jpg", category: "Laptops", desc: "Super powerful and sleek HP laptop. (Discounted!)" },
+      { name: "HP Pro M2", price: 1200,  image: "laptop1.jpg", category: "Laptops", desc: "Super powerful and sleek HP laptop. (Discounted!)" },
       { name: "Dell XPS 15", price: 1299, image: "laptop2.jpg", category: "Laptops", desc: "Great for work and design professionals." },
       { name: "Cool T-Shirt", price: 25, image: "t-shirt.jpg", category: "Clothes", desc: "100% cotton, stylish and comfortable." },
       { name: "Winter Jacket", price: 99, image: "t-shirt2.jpg", category: "Clothes", desc: "Warm and cozy jacket for cold weather." },
@@ -552,7 +648,7 @@
     function renderProducts(filter = "") {
       const grid = document.getElementById("productsGrid");
       grid.innerHTML = "";
-      products
+      window.products
         .filter(product =>
           product.name.toLowerCase().includes(filter) ||
           product.desc.toLowerCase().includes(filter)
@@ -582,7 +678,7 @@
         showAuthScreen();
         return;
       }
-      const product = products[idx];
+      const product = window.products[idx];
       const existing = cart.find(item => item.name === product.name);
       if (existing) {
         existing.qty += 1;
@@ -790,6 +886,109 @@
       if (event.target === document.getElementById("reviewsModal")) document.getElementById("reviewsModal").classList.add("hidden");
       if (event.target === document.getElementById("accountModal")) document.getElementById("accountModal").classList.add("hidden");
     };
+
+    // --- DASHBOARD LOGIC ---
+    function showDashboard() {
+      renderDashboardSummary();
+      renderDashboardProducts();
+      renderDashboardUsers();
+      renderDashboardOrders();
+      document.getElementById('dashboardModal').classList.remove('hidden');
+      document.body.style.overflow = "hidden";
+    }
+    function closeDashboard() {
+      document.getElementById('dashboardModal').classList.add('hidden');
+      document.body.style.overflow = "auto";
+    }
+    document.getElementById('dashboardNav').onclick = function(e) {
+      e.preventDefault(); // disables #dashboard link scroll
+      showDashboard();
+    }
+    document.getElementById('dashboardCloseBtn').onclick = closeDashboard;
+
+    function renderDashboardSummary() {
+      const orders = JSON.parse(localStorage.getItem("shaho_orders") || "[]");
+      let totalOrders = orders.length, totalItems = 0, totalRevenue = 0;
+      orders.forEach(order => {
+        totalItems += order.items.reduce((sum, it) => sum + it.qty, 0);
+        totalRevenue += order.items.reduce((sum, it) => sum + it.qty * it.price, 0);
+      });
+      const users = JSON.parse(localStorage.getItem("users") || "[]");
+      document.getElementById("statOrders").textContent = totalOrders;
+      document.getElementById("statItems").textContent = totalItems;
+      document.getElementById("statRevenue").textContent = totalRevenue.toFixed(2);
+      document.getElementById("statUsers").textContent = users.length;
+    }
+
+    function renderDashboardProducts() {
+      const products = window.products; // from your script
+      const tbody = document.getElementById("dashboardProductsTable").querySelector("tbody");
+      tbody.innerHTML = "";
+      products.forEach((p,i) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML =
+          `<td>${p.name}</td>
+           <td>${p.price}</td>
+           <td>${p.category}</td>
+           <td><button class='dashboard-delete' onclick='deleteDashboardProduct(${i})'>Delete</button></td>`;
+        tbody.appendChild(tr);
+      });
+    }
+    window.deleteDashboardProduct = function(idx) {
+      window.products.splice(idx, 1);
+      renderDashboardProducts();
+      renderProducts(); // update user view
+    }
+    // Add Product Logic
+    document.getElementById("addProdBtn").onclick = function() {
+      const name = document.getElementById("addProdName").value.trim();
+      const price = parseFloat(document.getElementById("addProdPrice").value);
+      const image = document.getElementById("addProdImg").value.trim();
+      const category = document.getElementById("addProdCategory").value.trim();
+      const desc = document.getElementById("addProdDesc").value.trim();
+      if (name && price && category && desc && image) {
+        window.products.push({name, price, image, category, desc});
+        renderDashboardProducts();
+        renderProducts();
+        document.getElementById("addProductForm").reset();
+      }
+    };
+
+    function renderDashboardUsers() {
+      const users = JSON.parse(localStorage.getItem("users") || "[]");
+      const tbody = document.getElementById("dashboardUsersTable").querySelector("tbody");
+      tbody.innerHTML = "";
+      users.forEach(u => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${u.name || ""}</td><td>${u.email}</td>`;
+        tbody.appendChild(tr);
+      });
+    }
+    function renderDashboardOrders() {
+      const orders = JSON.parse(localStorage.getItem("shaho_orders") || "[]");
+      const tbody = document.getElementById("dashboardOrdersTable").querySelector("tbody");
+      tbody.innerHTML = "";
+      orders.slice().reverse().forEach(order => {
+        const items = order.items.map(i => `${i.name} ×${i.qty}`).join(', ');
+        const total = order.items.reduce((sum, it) => sum+it.qty*it.price, 0);
+        const tr = document.createElement("tr");
+        tr.innerHTML =
+          `<td>${order.user}</td>
+           <td>${order.date}</td>
+           <td>${items}</td>
+           <td>${total.toFixed(2)}</td>`;
+        tbody.appendChild(tr);
+      });
+    }
+    // Keyboard ESC closes dashboard
+    window.addEventListener('keydown', function(e) {
+      if(e.key==="Escape") closeDashboard();
+    });
+    // Clicking outside closes modal
+    document.getElementById("dashboardModal").onclick = function(e){
+      if(e.target===this) closeDashboard();
+    };
+    // End Dashboard JS
   </script>
 </body>
 </html>
